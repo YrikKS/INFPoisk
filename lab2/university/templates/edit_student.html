@@ -1,0 +1,38 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение университета</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+<h1>Изменение университета</h1>
+<form action="{% url 'edit_student' id %}" method="post">
+    {% csrf_token %}
+    <label for="name">Новое имя студента:</label>
+    {% render_field student.fio %}
+    <br>
+    <label for="name">Новая дата рождения студента:</label>
+    {% render_field student.date_of_born %}
+    <br>
+    <label for="name">Новая университет:</label>
+    {% render_field student.university %}
+    <br>
+    <br>
+    <label for="name">Новая дата поступления:</label>
+    {% render_field student.date_of_receipt %}
+    <br>
+    <br>
+    <button type="submit">Изменить</button>
+</form>
+</body>
+</html>

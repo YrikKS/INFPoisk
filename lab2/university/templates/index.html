@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Моя страница Django</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        .button-container button {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Система контроля университетов</h1>
+<div class="button-container">
+    <button onclick="location.href='{% url 'create_university' %}'">Создать университет</button>
+    <br>
+    <button onclick="location.href='{% url 'university_list' %}'">Просмотр университетов</button>
+    <br>
+    <button onclick="location.href='{% url 'create_student' %}'">Создать студента</button>
+    <br>
+    <button onclick="location.href='{% url 'student_list' %}'">Просмотр студентов</button>
+    <br>
+</div>
+</body>
+</html>

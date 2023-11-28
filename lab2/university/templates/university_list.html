@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список университетов</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        table {
+            margin-bottom: 5px;
+        }
+
+        th, td {
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            padding: 5px 10px;
+        }
+    </style>
+    <script>
+        function goToIndex() {
+            window.location.href = "{% url 'home' %}";
+        }
+    </script>
+</head>
+<body>
+<h1>Список университетов</h1>
+<table class="my-table">
+    <tr>
+        <th>Название</th>
+        <th>Короткое название</th>
+        <th>Дата создания</th>
+        <th>Изменить</th>
+        <th>Удалить</th>
+    </tr>
+    {% for university in universities %}
+        <tr>
+            <td>{{ university.name }}</td>
+            <td>{{ university.short_name }}</td>
+            <td>{{ university.date_creation|date:"d.m.Y" }}</td>
+            <td>
+                <form action="{% url 'edit_university' university.id %}" method="get" style="display: inline-block;">
+                    <button type="submit">Изменить</button>
+                </form>
+            </td>
+            <td>
+                <form action="{% url 'delete_university' university.id %}" method="post" style="display: inline-block;">
+                    {% csrf_token %}
+                    <button type="submit">Удалить</button>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<br>
+<button onclick="goToIndex()">Вернуться на главную</button>
+</body>
+</html>

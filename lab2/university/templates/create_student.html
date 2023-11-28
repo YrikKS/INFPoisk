@@ -1,0 +1,39 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание студента</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+    <script>
+        function goToIndex() {
+            window.location.href = "{% url 'home' %}";
+        }
+    </script>
+</head>
+<body>
+<h1>Создание студента</h1>
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <br>
+        <label>{{ field.label }}</label>
+        {% render_field field %}
+        <br>
+    {% endfor %}
+    <br>
+    <button type="submit">Создать</button>
+    <br>
+    <br>
+    <button onclick="goToIndex()">Вернуться на главную</button>
+</form>
+</body>
+</html>
