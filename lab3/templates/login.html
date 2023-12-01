@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+</head>
+<body>
+<h1>Авторизация</h1>
+{% if error %}
+    <h3>{{ error }}</h3>
+{% endif %}
+<form method="POST" action="{{ url_for('login') }}">
+    {{ form.csrf_token }}
+    <div>
+        <label for="username">Имя пользователя:</label>
+        {{ form.username }}
+    </div>
+    <div>
+        <label for="password">Пароль:</label>
+        {{ form.password }}
+    </div>
+    <div>
+        <input type="submit" value="Войти">
+        <button onclick="window.location.href='{{ url_for('create_user') }}'">Создать пользователя</button>
+    </div>
+</form>
+</body>
+</html>

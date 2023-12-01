@@ -13,6 +13,7 @@ class UniversityForm(forms.Form):
     )
 
 
+
 class StudentForm(forms.Form):
     fio = forms.CharField(label="ФИО студента")
     date_of_born = forms.DateField(

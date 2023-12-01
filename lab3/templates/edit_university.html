@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение университета</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+<h1>Изменение университета</h1>
+<form action="{{ url_for('edit_university', university_id=id) }}" method="post">
+    {{ university.csrf_token }}
+    <label for="name">Новое название университета:</label>
+    <input type="text" name="name" value="{{ university.name }}">
+    <br>
+    <label for="name">Новое короткое название университета:</label>
+    <input type="text" name="short_name" value="{{ university.short_name }}">
+    <br>
+    <label for="name">Новая дата создания:</label>
+    <input type="date" name="date_creation" value="{{ university.date_creation }}">
+    <br>
+    <br>
+    <button type="submit">Изменить</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание университета</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .submit-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            margin-top: 2vh;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-style {
+            margin-bottom: 2vh;
+            border-color: #007bff;
+            text-decoration-color: cornsilk;
+        }
+    </style>
+</head>
+<body>
+<h1>Создание университета</h1>
+<form method="POST" action="/create_university">
+    {{ form.csrf_token }}<br>
+    {{ form.name.label }}<br>
+    {{ form.name(class="form-style", size=30) }}<br>
+    {{ form.short_name.label }}<br>
+    {{ form.short_name(class="form-style", size=30) }}<br>
+    {{ form.date_creation.label }}<br>
+    {{ form.date_creation(class="form-style") }}<br>
+    <button type="submit" class="submit-button">{{ form.submit.label }}</button>
+    <br>
+</form>
+</body>
+</html>
