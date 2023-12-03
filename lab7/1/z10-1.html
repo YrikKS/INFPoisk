@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Форма выбора таблицы БД</title>
+</head>
+<body>
+  <h1>Форма выбора таблицы БД</h1>
+
+  <form action="z10-2.php" method="post">
+    <fieldset>
+      <legend>Выберите структуру:</legend>
+      <label><input type="checkbox" name="structure[]" value="sal">Таблица sal</label><br>
+      <label><input type="checkbox" name="structure[]" value="cust">Таблица cust</label><br>
+      <label><input type="checkbox" name="structure[]" value="ord">Таблица ord</label><br>
+    </fieldset>
+
+    <fieldset>
+      <legend>Выберите содержимое:</legend>
+      <label><input type="checkbox" name="content[]" value="sal">Содержимое таблицы sal</label><br>
+      <label><input type="checkbox" name="content[]" value="cust">Содержимое таблицы cust</label><br>
+      <label><input type="checkbox" name="content[]" value="ord">Содержимое таблицы ord</label><br>
+    </fieldset>
+
+    <br>
+    <input type="submit" value="Вывести">
+  </form>
+</body>
+</html>
