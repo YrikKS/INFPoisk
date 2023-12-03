@@ -50,7 +50,6 @@ def login():
 
 
 @app.route('/user/create', methods=['GET', 'POST'])
-@login_required
 def create_user():
     form = UserForm()
     if form.validate_on_submit():
@@ -116,9 +115,13 @@ def delete_student(student_id):
 def edit_student(student_id):
     student = StudentModel.query.get(student_id)
     form = StudentForm(obj=student)
-
+    universities = UniversityModel.query.all()  # Получаем список всех университетов
+    form.university.choices = [(university.id, university.name) for university in universities]
     if request.method == 'POST':
-        form.populate_obj(student)
+        student.fio = form.fio.data
+        student.date_of_born = form.date_of_born.data
+        student.university_id = form.university.data
+        student.date_of_receipt = form.date_of_receipt.data
         db.session.commit()
         return redirect('/student_list')
 
