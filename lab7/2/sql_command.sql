@@ -1,0 +1,3 @@
+-- Active: 1701592836285@@127.0.0.1@3306@sample
+
+DROP TABLE IF EXISTS notebook
